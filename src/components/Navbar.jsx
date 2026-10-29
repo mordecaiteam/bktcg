@@ -20,7 +20,7 @@ function Navbar() {
           className="transition duration-300 hover:scale-105"
         >
           <img
-            src="/bktcg-logo.png"
+            src="/bktcg-logo.webp"
             alt="BKTCG Show Logo"
             className="h-14 w-auto drop-shadow-xl md:h-16"
           />

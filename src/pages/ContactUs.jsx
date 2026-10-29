@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import gmailLogo from "../assets/gmail_logo.svg";
-import instagramLogo from "../assets/ig_logo.svg";
-import tiktokLogo from "../assets/tiktok_logo.svg";
+import gmailLogo from "../assets/misc/gmail_logo.svg";
+import instagramLogo from "../assets/misc/ig_logo.svg";
+import tiktokLogo from "../assets/misc/tiktok_logo.svg";
 
 function ContactUs() {
   const navigate = useNavigate();

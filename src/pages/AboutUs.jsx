@@ -1,4 +1,4 @@
-import show10 from "../assets/show-10.jpg";
+import show10 from "../assets/hero/show-10.webp";
 
 function AboutUs() {
   const values = [
@@ -27,8 +27,10 @@ function AboutUs() {
 
   return (
     <main className="bg-[#2A1E68] text-white">
+
       {/* HERO */}
       <section className="relative overflow-hidden px-6 py-28 text-center md:py-36">
+
         {/* BACKGROUND IMAGE */}
         <img
           src={show10}
@@ -57,17 +59,48 @@ function AboutUs() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/90 drop-shadow-md">
-            BKTCG Show is a Brooklyn-based trading card event built around
-            collecting, community, and bringing people in the hobby together.
-          </p>
+  BKTCG Show is a Brooklyn-based trading card event built around
+  collecting, community, and bringing people in the hobby together.
+</p>
+
+{/* JOIN US CTA */}
+<div className="mt-9 flex justify-center">
+  <a
+    href="/events"
+    className="
+      inline-flex
+      items-center
+      justify-center
+      rounded-xl
+      bg-gradient-to-r
+      from-[#FFA500]
+      to-[#FFD24A]
+      px-10
+      py-4
+      text-lg
+      font-black
+      text-[#2A1E68]
+      shadow-[0_8px_25px_rgba(255,165,0,0.25)]
+      transition-all
+      duration-300
+      hover:-translate-y-1
+      hover:scale-105
+      hover:shadow-[0_0_30px_rgba(255,165,0,0.55)]
+      active:scale-95
+    "
+  >
+    Join Us
+  </a>
+</div>
         </div>
       </section>
 
-      {/* MISSION */}
-      <section className="bg-white px-6 py-20 text-[#2A1E68]">
+      {/* MISSION — SOFT PURPLE BACKGROUND */}
+      <section className="bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-6 py-20 text-[#2A1E68]">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+
           <div>
-            <p className="font-bold uppercase tracking-widest text-[#FFA500]">
+            <p className="font-bold uppercase tracking-widest text-[#B46B00]">
               Our Mission
             </p>
 
@@ -83,12 +116,14 @@ function AboutUs() {
             cards, meeting vendors, or just discovering the hobby, BKTCG Show
             is designed to make the experience welcoming and exciting.
           </p>
+
         </div>
       </section>
 
-      {/* VALUES */}
+      {/* VALUES — KEEP DARK NAVY */}
       <section className="bg-[#0B1D5A] px-6 py-20">
         <div className="mx-auto max-w-6xl">
+
           <div className="text-center">
             <p className="font-bold uppercase tracking-widest text-[#4FCBFF]">
               What We Stand For
@@ -115,14 +150,16 @@ function AboutUs() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* WHAT TO EXPECT */}
-      <section className="bg-white px-6 py-20 text-[#2A1E68]">
+      {/* WHAT TO EXPECT — SOFT PURPLE BACKGROUND */}
+      <section className="bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-6 py-20 text-[#2A1E68]">
         <div className="mx-auto max-w-6xl">
+
           <div className="text-center">
-            <p className="font-bold uppercase tracking-widest text-[#FFA500]">
+            <p className="font-bold uppercase tracking-widest text-[#B46B00]">
               The BKTCG Experience
             </p>
 
@@ -137,20 +174,35 @@ function AboutUs() {
             </p>
           </div>
 
+          {/* EXPERIENCE CARDS */}
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border-2 border-[#4FCBFF]/20 bg-[#F8F7FF] p-6 text-center font-bold shadow-lg transition hover:-translate-y-1 hover:border-[#FFA500]"
+                className="
+                  rounded-2xl
+                  border border-[#A78BFA]/40
+                  bg-white/90
+                  p-6
+                  text-center
+                  font-bold
+                  shadow-[0_0_15px_rgba(139,92,246,0.12)]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-[#8B5CF6]
+                  hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
+                "
               >
                 {item}
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — KEEP ORANGE */}
       <section className="bg-gradient-to-r from-[#FFA500] via-[#FFD24A] to-[#FFA500] px-6 py-20 text-center text-[#2A1E68]">
         <h2 className="text-3xl font-black md:text-5xl">
           Join The Brooklyn Card Community
@@ -160,6 +212,7 @@ function AboutUs() {
           Buy, sell, trade, collect, and connect at BKTCG Show.
         </p>
       </section>
+
     </main>
   );
 }

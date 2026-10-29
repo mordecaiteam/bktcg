@@ -1,9 +1,9 @@
-import Hero from "../components/Hero";
-import TreasureProfile from "../components/TreasureProfile";
-import FeaturedGames from "../components/FeaturedGames";
-import EventHighlights from "../components/EventHighlights";
-import FeatureCards from "../components/FeatureCards";
-import CTASection from "../components/CTASection";
+import Hero from "../components/home/Hero";
+import TreasureProfile from "../components/home/TreasureProfile";
+import FeaturedGames from "../components/home/FeaturedGames";
+import EventHighlights from "../components/home/EventHighlights";
+import FeatureCards from "../components/home/FeatureCards";
+import CTASection from "../components/home/CTASection";
 
 function Home() {
   return (

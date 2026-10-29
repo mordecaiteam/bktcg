@@ -1,145 +1,88 @@
+const brooklynCollege = {
+  location: "Brooklyn College West Quad Gym",
+  address: "2900 Bedford Ave, Brooklyn, NY 11210",
+  neighborhood: "Flatbush",
+  googleMaps: "https://maps.app.goo.gl/YEZccrNoJwyCgAAG9",
+  appleMaps: "https://maps.apple.com/?q=Brooklyn%20College%202900%20Bedford%20Ave%20Brooklyn%20NY%2011210",
+};
+
 const events = [
   {
     id: 1,
-    title: "August's BKTCG Show (FIRST SHOW)",
+    title: "August's BKTCG Show (FIRST SHOW)", // Existing title preserved; date is July 19.
     date: "2026-07-19",
     displayDate: "July 19, 2026",
-
     time: "10:00 AM – 5:00 PM",
     generalAdmissionTime: "11:00 AM – 5:00 PM",
     earlyBirdTime: "10:00 AM – 5:00 PM",
-
-    location: "Brooklyn College West Quad Gym",
-    address: "2900 Bedford Ave, Brooklyn, NY 11210",
-    neighborhood: "Flatbush",
-
+    ...brooklynCollege,
     venueSize: "10,000 sq. ft.",
     vendors: "150+ vendors",
-
-    focus:
-      "Pokémon, One Piece, graded slabs, vintage packs, sealed products, and more",
-
-    description:
-      "Brooklyn's large-scale TCG gathering featuring vendors, collectors, dedicated trading zones, rare singles, graded cards, sealed products, and custom merchandise.",
-
+    focus: "Pokémon, One Piece, graded slabs, vintage packs, sealed products, and more",
+    description: "Brooklyn's large-scale TCG gathering featuring vendors, collectors, dedicated trading zones, rare singles, graded cards, sealed products, and custom merchandise.",
     image: "https://www.eventeny.com/event-pics/1621986-cover-0v14bsfgnb8b1778080168-1200.jpg",
-    
     floorplan: "/brooklyn_show_floorplan_preview.jpg",
-
-    ticketLink:
-      "https://www.eventeny.com/events/bktcgshow-30309/?srsltid=AfmBOorm_xPUkg0unAn_ITQN30c2Xz1A4noied-G0jyMIwCzVZ1v0KBd",
-
-    vendorLink:
-      "https://www.eventeny.com/events/vendor/?id=48671",
-
-    googleMaps:
-      "https://maps.app.goo.gl/YEZccrNoJwyCgAAG9",
-
-    appleMaps:
-      "https://maps.apple.com/?q=Brooklyn%20College%202900%20Bedford%20Ave%20Brooklyn%20NY%2011210",
-
-    ticketTypes: [
-      "Early Bird Admission — entry at 10:00 AM",
-      "General Admission — entry at 11:00 AM",
-      "Under 5 Admission — free with paying adult",
-      "Additional Vendor Pass — message before purchase",
-    ],
+    ticketLink: "https://www.eventeny.com/events/bktcgshow-30309/?srsltid=AfmBOorm_xPUkg0unAn_ITQN30c2Xz1A4noied-G0jyMIwCzVZ1v0KBd",
+    vendorLink: "https://www.eventeny.com/events/vendor/?id=48671",
+    ticketTypes: ["Early Bird Admission — entry at 10:00 AM", "General Admission — entry at 11:00 AM", "Under 5 Admission — free with paying adult", "Additional Vendor Pass — message before purchase"],
   },
-
   {
     id: 2,
     title: "September's BK TCG Show",
     date: "2026-09-13",
     displayDate: "September 13, 2026",
-
     time: "10:00 AM – 5:00 PM",
     generalAdmissionTime: "11:00 AM – 5:00 PM",
     earlyBirdTime: "10:00 AM – 5:00 PM",
-
-    location: "Brooklyn College West Quad Gym",
-    address: "2900 Bedford Ave, Brooklyn, NY 11210",
-    neighborhood: "Flatbush",
-
+    ...brooklynCollege,
     venueSize: "140 Tables",
     vendors: "140-table show",
-
-    focus:
-      "Pokémon, One Piece, singles, slabs, sealed products, collectibles, and more",
-
-    description:
-      "BKTCG returns to Brooklyn College for its September show, bringing together collectors, vendors, and TCG fans for a full day of buying, selling, trading, and discovering cards.",
-
+    focus: "Pokémon, One Piece, singles, slabs, sealed products, collectibles, and more",
+    description: "BKTCG returns to Brooklyn College for its September show, bringing together collectors, vendors, and TCG fans for a full day of buying, selling, trading, and discovering cards.",
     image: "https://www.ontreasure.com/_next/image?url=https%3A%2F%2Fqkdlfshzugzeqlznyqfv.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fposters%2Fposters1785156791404&w=2048&q=75",
-
     floorplan: "/brooklyn_show_floorplan_preview.jpg",
-
-    ticketLink:
-      "https://www.ontreasure.com/events/septembers-bk-tcg-show-09132026",
-
-    vendorLink:
-      "https://www.ontreasure.com/events/septembers-bk-tcg-show-09132026/tables",
-
-    googleMaps:
-      "https://maps.app.goo.gl/YEZccrNoJwyCgAAG9",
-
-    appleMaps:
-      "https://maps.apple/p/Ixow3mGqEc2_4s",
-
-    ticketTypes: [
-      "General Admission - $5",
-      "Early Bird Admission - $10",
-      "Extra Vendor Pass - $5"
-    ],
+    ticketLink: "https://www.ontreasure.com/events/septembers-bk-tcg-show-09132026",
+    vendorLink: "https://www.ontreasure.com/events/septembers-bk-tcg-show-09132026/tables",
+    ticketTypes: ["General Admission - $5", "Early Bird Admission - $10", "Extra Vendor Pass - $5"],
   },
-
-
   {
-  id: 3,
-  title: "October's BK TCG Show",
-  date: "2026-10-25",
-  displayDate: "October 25, 2026",
-
-  time: "10:00 AM – 5:00 PM",
-  generalAdmissionTime: "11:00 AM – 5:00 PM",
-  earlyBirdTime: "10:00 AM – 5:00 PM",
-
-  location: "Brooklyn College West Quad Gym",
-  address: "2900 Bedford Ave, Brooklyn, NY 11210",
-  neighborhood: "Flatbush",
-
-  venueSize: "140 Tables",
-  vendors: "140-table show",
-
-  focus:
-    "Pokémon, One Piece, singles, slabs, sealed products, collectibles, and more",
-
-  description:
-    "BKTCG returns to Brooklyn College for its October show, bringing together collectors, vendors, and TCG fans for a full day of buying, selling, trading, and discovering cards.",
-
-  image:
-    "https://www.ontreasure.com/_next/image?url=https%3A%2F%2Fqkdlfshzugzeqlznyqfv.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fposters%2Fposters1788724164051&w=2048&q=75",
-
-  treasureMap: true,
-
-  ticketLink:
-    "https://www.ontreasure.com/events/octobers-bk-tcg-show-10252026/tickets",
-
-  vendorLink:
-    "https://www.ontreasure.com/events/octobers-bk-tcg-show-10252026",
-
-  googleMaps:
-    "https://maps.app.goo.gl/YEZccrNoJwyCgAAG9",
-
-  appleMaps:
-    "https://maps.apple/p/Ixow3mGqEc2_4s",
-
-  ticketTypes: [
-    "General Admission - $5",
-    "Early Bird Admission - $10",
-    "Extra Vendor Pass - $5",
-  ],
-},  
-
+    id: 3,
+    title: "October's BK TCG Show",
+    date: "2026-10-25",
+    displayDate: "October 25, 2026",
+    time: "10:00 AM – 5:00 PM",
+    generalAdmissionTime: "11:00 AM – 5:00 PM",
+    earlyBirdTime: "10:00 AM – 5:00 PM",
+    ...brooklynCollege,
+    venueSize: "140 Tables",
+    vendors: "140-table show",
+    focus: "Pokémon, One Piece, singles, slabs, sealed products, collectibles, and more",
+    description: "BKTCG returns to Brooklyn College for its October show, bringing together collectors, vendors, and TCG fans for a full day of buying, selling, trading, and discovering cards.",
+    image: "https://www.ontreasure.com/_next/image?url=https%3A%2F%2Fqkdlfshzugzeqlznyqfv.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fposters%2Fposters1788724164051&w=2048&q=75",
+    treasureMapUrl: "https://www.ontreasure.com/events/octobers-bk-tcg-show-10252026/venue-map",
+    ticketLink: "https://www.ontreasure.com/events/octobers-bk-tcg-show-10252026/tickets",
+    vendorLink: "https://www.ontreasure.com/events/octobers-bk-tcg-show-10252026",
+    ticketTypes: ["General Admission - $5", "Early Bird Admission - $10", "Extra Vendor Pass - $5"],
+  },
+  {
+    id: 4,
+    title: "November's BK TCG Show",
+    date: "2026-11-22",
+    displayDate: "November 22, 2026",
+    time: "10:00 AM – 5:00 PM",
+    generalAdmissionTime: "11:00 AM – 5:00 PM",
+    earlyBirdTime: "10:00 AM – 5:00 PM",
+    ...brooklynCollege,
+    venueSize: "140 Tables",
+    vendors: "140-table show",
+    focus: "Pokémon, One Piece, singles, slabs, sealed products, collectibles, and more",
+    description: "BKTCG returns to Brooklyn College for its November show, bringing together collectors, vendors, and TCG fans for a full day of buying, selling, trading, and discovering cards.",
+    image: "https://www.ontreasure.com/_next/image?url=https%3A%2F%2Fqkdlfshzugzeqlznyqfv.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fposters%2Fposters1793194786794&w=2048&q=75",
+    // Add treasureMapUrl once the November /venue-map embed is verified.
+    ticketLink: "https://www.ontreasure.com/events/novembers-bk-tcg-show-brooklyn-ny-11222026/tickets",
+    vendorLink: "https://www.ontreasure.com/events/novembers-bk-tcg-show-brooklyn-ny-11222026/tables",
+    ticketTypes: ["General Admission - $5", "Early Bird Admission - $10", "Extra Vendor Pass - $5"],
+  },
 ];
 
 export default events;

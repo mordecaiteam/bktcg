@@ -1,423 +1,134 @@
 import { useState } from "react";
-import events from "../data/events";
-import TreasureVenueMap from "../components/TreasureVenueMap";
+import { ExternalLink } from "lucide-react";
+import { getEventLists } from "../utils/eventUtils";
+import EventCard from "../components/events/EventCard";
+import PastEventCard from "../components/events/PastEventCard";
 
-function Events() {
+export default function Events() {
   const [activeTab, setActiveTab] = useState("upcoming");
-  const [openMoreInfoId, setOpenMoreInfoId] = useState(null);
-  const [openFloorplanId, setOpenFloorplanId] = useState(null);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const upcomingEvents = events
-    .filter((event) => new Date(`${event.date}T23:59:59`) >= today)
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-  const pastEvents = events
-    .filter((event) => new Date(`${event.date}T23:59:59`) < today)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  const displayedEvents =
-    activeTab === "upcoming" ? upcomingEvents : pastEvents;
-
-  const toggleMoreInfo = (id) => {
-    setOpenMoreInfoId(openMoreInfoId === id ? null : id);
-  };
-
-  const toggleFloorplan = (id) => {
-    setOpenFloorplanId(openFloorplanId === id ? null : id);
-  };
+  const { upcoming, past } = getEventLists();
 
   return (
-    <main className="bg-[#2A1E68] text-white">
-      {/* EVENTS */}
-      <section className="bg-white px-6 py-20 text-[#2A1E68]">
-        <div className="mx-auto max-w-7xl">
-          {/* TABS */}
-          <div className="mb-12 flex justify-center">
-            <div className="inline-flex rounded-2xl bg-[#2A1E68]/5 p-1.5 shadow-sm">
-              <button
-                type="button"
-                onClick={() => setActiveTab("upcoming")}
-                className={`rounded-xl px-6 py-3 font-bold transition ${
-                  activeTab === "upcoming"
-                    ? "bg-[#2A1E68] text-white shadow"
-                    : "text-[#2A1E68]/65 hover:text-[#2A1E68]"
-                }`}
-              >
-                Upcoming Events
-              </button>
+    <main className="min-h-screen text-[#2A1E68]">
 
-              <button
-                type="button"
-                onClick={() => setActiveTab("past")}
-                className={`rounded-xl px-6 py-3 font-bold transition ${
-                  activeTab === "past"
-                    ? "bg-[#2A1E68] text-white shadow"
-                    : "text-[#2A1E68]/65 hover:text-[#2A1E68]"
-                }`}
-              >
-                Past Events
-              </button>
+      {/* SOFT PURPLE BACKGROUND */}
+      <section className="min-h-screen bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-4 py-14 sm:px-6 md:py-20">
+
+        <div className="mx-auto max-w-6xl">
+
+          {/* PAGE HEADER */}
+          <div className="mb-10 text-center">
+            <p className="font-black uppercase tracking-[0.2em] text-[#B46B00]">
+              Brooklyn's TCG Community
+            </p>
+
+            <h1 className="mt-3 text-4xl font-black text-[#2A1E68] md:text-6xl">
+              BKTCG Shows
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl rounded-xl bg-white/70 p-3 text-[#2A1E68]/75">
+              Buy, sell, trade, and connect with fellow collectors.
+            </p>
+          </div>
+
+          {/* EVENT TABS */}
+          <div className="mb-9 flex justify-center">
+            <div className="inline-flex rounded-2xl border border-[#2A1E68]/10 bg-white/95 p-1.5 shadow-lg">
+
+              {["upcoming", "past"].map((tab) => (
+                <button
+                  key={tab}
+                  type="button"
+                  onClick={() => setActiveTab(tab)}
+                  aria-pressed={activeTab === tab}
+                  className={`rounded-xl px-5 py-3 text-sm font-bold transition sm:px-7 sm:text-base ${
+                    activeTab === tab
+                      ? "bg-[#2A1E68] text-white"
+                      : "text-[#2A1E68]/70 hover:text-[#2A1E68]"
+                  }`}
+                >
+                  {tab === "upcoming"
+                    ? `Upcoming (${upcoming.length})`
+                    : `Past Shows (${past.length})`}
+                </button>
+              ))}
+
             </div>
           </div>
 
-          {/* NO UPCOMING EVENTS */}
-          {activeTab === "upcoming" && displayedEvents.length === 0 && (
-            <div className="mx-auto max-w-4xl rounded-3xl border-2 border-[#4FCBFF]/20 bg-[#F8F7FF] p-10 text-center shadow-lg">
-              <p className="font-bold uppercase tracking-widest text-[#FFA500]">
-                Stay Tuned
-              </p>
+          {/* UPCOMING EVENTS */}
+          {activeTab === "upcoming" ? (
+            upcoming.length ? (
+              <div className="space-y-10">
 
-              <h2 className="mt-3 text-3xl font-black md:text-5xl">
-                No Upcoming Shows Yet
-              </h2>
+                {/* FEATURED EVENT */}
+                <EventCard event={upcoming[0]} featured />
 
-              <p className="mx-auto mt-5 max-w-2xl text-lg text-[#2A1E68]/70">
-                Follow BKTCG for announcements about future shows, ticket
-                releases, and vendor opportunities.
-              </p>
+                {/* ADDITIONAL UPCOMING EVENTS */}
+                {upcoming.length > 1 && (
+                  <div>
+                    <h2 className="mb-5 rounded-xl bg-white/95 px-5 py-3 text-2xl font-black">
+                      More Upcoming Shows
+                    </h2>
 
-              <a
-                href="https://www.instagram.com/bktcgshow"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-block rounded-xl bg-gradient-to-r from-[#FFA500] to-[#FFD24A] px-8 py-3 font-bold text-[#0B1D5A] shadow-lg transition hover:scale-105"
-              >
-                Follow @bktcgshow
-              </a>
+                    <div className="space-y-6">
+                      {upcoming.slice(1).map((event) => (
+                        <EventCard
+                          key={event.id}
+                          event={event}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            ) : (
+
+              /* NO UPCOMING EVENTS */
+              <div className="mx-auto max-w-3xl rounded-3xl border border-[#2A1E68]/10 bg-white/95 p-10 text-center shadow-xl">
+
+                <h2 className="text-3xl font-black">
+                  More Shows Coming Soon
+                </h2>
+
+                <p className="mt-4 text-[#2A1E68]/75">
+                  Stay tuned for the next BKTCG Show announcement.
+                </p>
+
+                <a
+                  href="https://www.instagram.com/bktcgshow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#2A1E68] px-6 py-3 font-bold text-white transition hover:bg-[#35267F]"
+                >
+                  Follow BKTCG
+
+                  <ExternalLink
+                    size={16}
+                    strokeWidth={2.5}
+                    aria-hidden="true"
+                  />
+                </a>
+
+              </div>
+            )
+          ) : (
+
+            /* PAST EVENTS */
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {past.map((event) => (
+                <PastEventCard
+                  key={event.id}
+                  event={event}
+                />
+              ))}
             </div>
+
           )}
 
-          {/* EVENT CARDS */}
-          <div className="space-y-12">
-            {displayedEvents.map((event) => {
-              const isUpcoming = activeTab === "upcoming";
-
-              return (
-                <div
-                  key={event.id}
-                  className="overflow-hidden rounded-3xl border-2 border-[#4FCBFF]/20 bg-[#F8F7FF] shadow-[0_15px_40px_rgba(0,0,0,.15)]"
-                >
-                  {/* EVENT POSTER */}
-                  {event.image && (
-                    <div className="border-b-2 border-[#4FCBFF]/20 bg-gradient-to-br from-[#0B1D5A] via-[#2A1E68] to-[#5B2DB8] p-5 md:p-8">
-                      <div className="mx-auto flex max-w-4xl justify-center">
-                        <img
-                          src={event.image}
-                          alt={`${event.title} event poster`}
-                          className="max-h-[650px] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* EVENT CONTENT */}
-                  <div className="p-8 md:p-12">
-                    <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-start">
-                      {/* MAIN INFO */}
-                      <div>
-                        <div className="flex flex-wrap items-center gap-3">
-                          <p className="font-bold uppercase tracking-widest text-[#FFA500]">
-                            {event.displayDate}
-                          </p>
-
-                          {!isUpcoming && (
-                            <span className="rounded-full bg-[#2A1E68]/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#2A1E68]">
-                              Past Event
-                            </span>
-                          )}
-                        </div>
-
-                        <h2 className="mt-3 text-3xl font-black md:text-5xl">
-                          {event.title}
-                        </h2>
-
-                        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#2A1E68]/75">
-                          {event.description}
-                        </p>
-
-                        {/* EVENT QUICK INFO */}
-                        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                          <div className="rounded-2xl bg-white p-5 shadow">
-                            <p className="font-black text-[#0B1D5A]">Date</p>
-
-                            <p className="mt-1 text-[#2A1E68]/75">
-                              {event.displayDate}
-                            </p>
-                          </div>
-
-                          <div className="rounded-2xl bg-white p-5 shadow">
-                            <p className="font-black text-[#0B1D5A]">Time</p>
-
-                            <p className="mt-1 text-[#2A1E68]/75">
-                              {event.time}
-                            </p>
-                          </div>
-
-                          <div className="rounded-2xl bg-white p-5 shadow">
-                            <p className="font-black text-[#0B1D5A]">Venue</p>
-
-                            <p className="mt-1 text-[#2A1E68]/75">
-                              {event.location}
-                            </p>
-                          </div>
-
-                          <div className="rounded-2xl bg-white p-5 shadow">
-                            <p className="font-black text-[#0B1D5A]">Address</p>
-
-                            <p className="mt-1 text-[#2A1E68]/75">
-                              {event.address}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* EVENT BUTTONS */}
-                        {isUpcoming && (
-                          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                            <a
-                              href={event.ticketLink}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="rounded-xl bg-gradient-to-r from-[#FFA500] to-[#FFD24A] px-8 py-3 text-center font-bold text-[#0B1D5A] shadow-lg transition hover:scale-105"
-                            >
-                              Get Tickets
-                            </a>
-
-                            {event.vendorLink && (
-                              <a
-                                href={event.vendorLink}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-xl border-2 border-[#2A1E68] px-8 py-3 text-center font-bold text-[#2A1E68] transition hover:bg-[#2A1E68] hover:text-white"
-                              >
-                                Apply To Be A Vendor
-                              </a>
-                            )}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* EVENT DETAILS CARD */}
-                      <div className="rounded-3xl bg-gradient-to-br from-[#2A1E68] to-[#5B2DB8] p-8 text-white shadow-2xl">
-                        <p className="font-bold uppercase tracking-widest text-[#4FCBFF]">
-                          {isUpcoming ? "Event Details" : "Show Highlights"}
-                        </p>
-
-                        <div className="mt-6 space-y-5">
-                          <div>
-                            <p className="text-3xl font-black text-[#FFA500]">
-                              {event.venueSize}
-                            </p>
-
-                            <p className="text-white/75">Event scale</p>
-                          </div>
-
-                          <div>
-                            <p className="text-3xl font-black text-[#FFA500]">
-                              {event.vendors}
-                            </p>
-
-                            <p className="text-white/75">
-                              {isUpcoming ? "Expected setup" : "Show setup"}
-                            </p>
-                          </div>
-
-                          <div>
-                            <p className="text-xl font-black text-[#FFA500]">
-                              Main Focus
-                            </p>
-
-                            <p className="mt-1 text-white/75">{event.focus}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* DROPDOWN BUTTONS */}
-                    <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                      {/* MORE INFO BUTTON */}
-                      <div className="h-fit rounded-2xl border border-[#2A1E68]/10 bg-white shadow">
-                        <button
-                          type="button"
-                          onClick={() => toggleMoreInfo(event.id)}
-                          className="flex w-full items-center justify-between px-6 py-5 text-left font-black text-[#0B1D5A]"
-                        >
-                          <span>
-                            {isUpcoming ? "More Info" : "View Event"}
-                          </span>
-
-                          <span className="text-[#FFA500]">
-                            {openMoreInfoId === event.id ? "▲" : "▼"}
-                          </span>
-                        </button>
-                      </div>
-
-                      {/* FLOORPLAN BUTTON */}
-                      <div className="h-fit rounded-2xl border border-[#2A1E68]/10 bg-white shadow">
-                        <button
-                          type="button"
-                          onClick={() => toggleFloorplan(event.id)}
-                          className="flex w-full items-center justify-between px-6 py-5 text-left font-black text-[#0B1D5A]"
-                        >
-                          <span>
-                            {event.treasureMap
-                              ? "Interactive Floorplan"
-                              : "Floorplan"}
-                          </span>
-
-                          <span className="text-[#FFA500]">
-                            {openFloorplanId === event.id ? "▲" : "▼"}
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* MORE INFO EXPANDED CONTENT */}
-                    {openMoreInfoId === event.id && (
-                      <div className="mt-6 rounded-2xl border border-[#2A1E68]/10 bg-white px-6 py-6 shadow">
-                        <div className="grid gap-8 md:grid-cols-2">
-                          <div>
-                            <h3 className="font-black text-[#FFA500]">
-                              General Show Info
-                            </h3>
-
-                            <p className="mt-2 text-sm leading-relaxed text-[#2A1E68]/75">
-                              {event.description}
-                            </p>
-                          </div>
-
-                          <div>
-                            <h3 className="font-black text-[#FFA500]">
-                              Location
-                            </h3>
-
-                            <p className="mt-2 text-sm text-[#2A1E68]/75">
-                              {event.location}
-                              <br />
-                              {event.address}
-                            </p>
-
-                            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-                              <a
-                                href={event.googleMaps}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-xl bg-[#2A1E68] px-4 py-2 text-center text-sm font-bold text-white transition hover:bg-[#35267F]"
-                              >
-                                Google Maps
-                              </a>
-
-                              <a
-                                href={event.appleMaps}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-xl border border-[#2A1E68] px-4 py-2 text-center text-sm font-bold text-[#2A1E68] transition hover:bg-[#2A1E68] hover:text-white"
-                              >
-                                Apple Maps
-                              </a>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h3 className="font-black text-[#FFA500]">
-                              Show Hours
-                            </h3>
-
-                            <p className="mt-2 text-sm text-[#2A1E68]/75">
-                              {event.time}
-                            </p>
-
-                            {event.generalAdmissionTime && (
-                              <p className="mt-2 text-sm text-[#2A1E68]/75">
-                                <span className="font-bold">
-                                  General Admission:
-                                </span>{" "}
-                                {event.generalAdmissionTime}
-                              </p>
-                            )}
-
-                            {event.earlyBirdTime && (
-                              <p className="mt-1 text-sm text-[#2A1E68]/75">
-                                <span className="font-bold">Early Bird:</span>{" "}
-                                {event.earlyBirdTime}
-                              </p>
-                            )}
-                          </div>
-
-                          {event.ticketTypes?.length > 0 && (
-                            <div>
-                              <h3 className="font-black text-[#FFA500]">
-                                Ticket Types
-                              </h3>
-
-                              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[#2A1E68]/75">
-                                {event.ticketTypes.map((ticket) => (
-                                  <li key={ticket}>{ticket}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* FLOORPLAN EXPANDED CONTENT */}
-                    {openFloorplanId === event.id && (
-                      <div className="mt-6 rounded-2xl border border-[#2A1E68]/10 bg-white p-6 shadow">
-                        {event.treasureMap ? (
-                          <>
-                            <div className="mb-6">
-                              <p className="font-black text-[#0B1D5A]">
-                                Interactive Vendor Map
-                              </p>
-
-                              <p className="mt-2 text-sm leading-relaxed text-[#2A1E68]/65">
-                                Explore the BKTCG show floor and vendor table
-                                layout directly through Treasure.
-                              </p>
-                            </div>
-
-                            <TreasureVenueMap />
-                          </>
-                        ) : event.floorplan ? (
-                          <>
-                            <p className="mb-4 text-sm text-[#2A1E68]/75">
-                              View the vendor table layout for this BKTCG Show.
-                            </p>
-
-                            <div className="overflow-hidden rounded-2xl border border-[#4FCBFF]/20 bg-white shadow-lg">
-                              <img
-                                src={event.floorplan}
-                                alt={`${event.title} floorplan`}
-                                className="w-full object-contain"
-                              />
-                            </div>
-                          </>
-                        ) : (
-                          <div className="py-6 text-center">
-                            <p className="font-black text-[#0B1D5A]">
-                              Floorplan Coming Soon
-                            </p>
-
-                            <p className="mt-2 text-sm text-[#2A1E68]/65">
-                              The vendor layout will be added once it becomes
-                              available.
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
     </main>
   );
 }
-
-export default Events;
