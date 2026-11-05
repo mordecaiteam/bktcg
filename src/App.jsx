@@ -8,6 +8,8 @@ import Sponsors from "./pages/Sponsors";
 import ContactUs from "./pages/ContactUs";
 import Footer from "./components/Footer";
 import ThankYou from "./pages/ThankYou";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import SponsorThankYou from "./pages/SponsorThankYou";
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
         <Route path="/sponsor-thank-you" element={<SponsorThankYou />} />
       </Routes>
 
