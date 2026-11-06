@@ -8,3 +8,102 @@ body {
 );
 }
 
+
+/* Opening sequence: let the page settle before the logo lands. */
+.home-page {
+  --home-intro-duration: 800ms;
+  animation: home-page-fade var(--home-intro-duration) ease-out both;
+}
+
+.home-logo-stamp {
+  transform-origin: center;
+  animation: home-logo-stamp 650ms var(--home-intro-duration)
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease-out, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-reveal.is-revealed,
+.home-reveal:focus-within {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes home-page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes home-logo-stamp {
+  0% { opacity: 0; transform: translateY(-45px) scale(1.5) rotate(-5deg); }
+  48% { opacity: 1; transform: translateY(3px) scale(0.94) rotate(1deg); }
+  72% { opacity: 1; transform: translateY(-2px) scale(1.025) rotate(-0.5deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page,
+  .home-logo-stamp { animation: none; }
+  .home-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Inner-page headers travel from left to right; content reveals on scroll. */
+[data-page-motion][data-motion-state] {
+  transition: opacity 700ms ease-out, translate 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-page-motion="header"][data-motion-state="pending"] {
+  opacity: 0;
+  translate: -32px 0;
+}
+[data-page-motion="reveal"][data-motion-state="pending"] {
+  opacity: 0;
+  translate: 0 24px;
+}
+[data-page-motion][data-motion-state="visible"],
+[data-page-motion][data-motion-state]:focus-within {
+  opacity: 1;
+  translate: 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-page-motion][data-motion-state] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}
+
+/* Each sponsor lands once when it first enters the viewport. */
+[data-page-motion="stamp"][data-motion-state="pending"] {
+  opacity: 0;
+  translate: 0 -36px;
+  scale: 1.12;
+}
+[data-page-motion="stamp"][data-motion-state="visible"] {
+  animation: sponsor-stamp 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: none;
+}
+@keyframes sponsor-stamp {
+  0% { opacity: 0; translate: 0 -36px; scale: 1.12; }
+  48% { opacity: 1; translate: 0 3px; scale: 0.96; }
+  72% { opacity: 1; translate: 0 -2px; scale: 1.015; }
+  100% { opacity: 1; translate: 0 0; scale: 1; }
+}
+[data-page-motion="stamp"][data-motion-state]:focus-within {
+  opacity: 1;
+  translate: none;
+  scale: 1;
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-page-motion="stamp"][data-motion-state] {
+    opacity: 1;
+    translate: none;
+    scale: 1;
+    animation: none;
+    transition: none;
+  }
+}

@@ -63,25 +63,25 @@ export default function TermsOfService() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-4 py-16 text-[#2A1E68] sm:px-6 md:py-24">
       <div className="mx-auto max-w-4xl">
-        <header className="mb-10 text-center">
+        <header data-page-motion="header" className="mb-10 text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#6B52D9]">BKTCG Show</p>
           <h1 className="mt-3 text-4xl font-black md:text-5xl">Terms of Service</h1>
           <p className="mt-4 text-sm text-[#2A1E68]/60">Effective date: October 30, 2026</p>
         </header>
         <article className="rounded-3xl border border-[#A78BFA]/40 bg-white/95 p-6 shadow-[0_0_28px_rgba(139,92,246,0.13)] sm:p-10">
-          <p className="leading-7 text-[#2A1E68]/80">
+          <p data-page-motion="reveal" className="leading-7 text-[#2A1E68]/80">
             Welcome to BKTCG Show. These Terms of Service describe the conditions for using our website. By using this website, you agree to these terms, subject to applicable law.
           </p>
           <div className="mt-9 space-y-9">
             {sections.map(({ title, paragraphs }) => (
-              <section key={title}>
+              <section data-page-motion="reveal" key={title}>
                 <h2 className="text-xl font-black sm:text-2xl">{title}</h2>
                 {paragraphs.map((paragraph) => (
                   <p key={paragraph} className="mt-3 leading-7 text-[#2A1E68]/75">{paragraph}</p>
                 ))}
               </section>
             ))}
-            <section>
+            <section data-page-motion="reveal">
               <h2 className="text-xl font-black sm:text-2xl">10. Contact</h2>
               <p className="mt-3 leading-7 text-[#2A1E68]/75">
                 For questions about these terms, contact{" "}
@@ -90,7 +90,7 @@ export default function TermsOfService() {
             </section>
           </div>
         </article>
-        <div className="mt-8 text-center text-sm font-semibold">
+        <div data-page-motion="reveal" className="mt-8 text-center text-sm font-semibold">
           <Link to="/privacy" className="text-[#5B2DB8] underline underline-offset-4 hover:text-[#2A1E68]">Read our Privacy Policy</Link>
         </div>
       </div>

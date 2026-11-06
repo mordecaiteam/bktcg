@@ -8,11 +8,11 @@ import dragonCardLabLogo from "../assets/sponsors/dragon-card-lab.webp";
 function Sponsors() {
   const sponsors = [
     {
-      name: "Tri County TCG",
-      logo: triCountyLogo,
-      alt: "Tri County TCG logo",
-      url: "https://www.instagram.com/tricountytcg/",
-      linkLabel: "Visit Instagram",
+      name: "Dragon Card Lab",
+      logo: dragonCardLabLogo,
+      alt: "Dragon Card Lab logo",
+      url: "https://dragoncardlab.com/",
+      linkLabel: "Visit Website",
     },
     {
       name: "Press Play Cards",
@@ -29,11 +29,11 @@ function Sponsors() {
       linkLabel: "Visit Instagram",
     },
     {
-      name: "Dragon Card Lab",
-      logo: dragonCardLabLogo,
-      alt: "Dragon Card Lab logo",
-      url: "https://dragoncardlab.com/",
-      linkLabel: "Visit Website",
+      name: "Tri County TCG",
+      logo: triCountyLogo,
+      alt: "Tri County TCG logo",
+      url: "https://www.instagram.com/tricountytcg/",
+      linkLabel: "Visit Instagram",
     },
   ];
 
@@ -41,7 +41,7 @@ function Sponsors() {
     <main className="min-h-screen bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] text-[#2A1E68]">
       {/* PAGE HEADER */}
       <section className="px-5 pb-10 pt-20 text-center sm:px-6 md:pt-24">
-        <div className="mx-auto max-w-4xl">
+        <div data-page-motion="header" className="mx-auto max-w-4xl">
           <p className="font-bold uppercase tracking-[0.2em] text-[#B46B00]">
             Our Partners
           </p>
@@ -63,6 +63,7 @@ function Sponsors() {
           <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-4">
             {sponsors.map((sponsor) => (
               <a
+                data-page-motion="stamp"
                 key={sponsor.name}
                 href={sponsor.url}
                 target="_blank"
@@ -122,7 +123,7 @@ function Sponsors() {
 
       {/* SPONSORSHIP CTA */}
       <section className="px-5 pb-24 sm:px-6">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-[#A78BFA]/40 bg-white/90 px-6 py-12 text-center shadow-[0_0_30px_rgba(139,92,246,0.15)] sm:px-10">
+        <div data-page-motion="reveal" className="mx-auto max-w-4xl rounded-3xl border border-[#A78BFA]/40 bg-white/90 px-6 py-12 text-center shadow-[0_0_30px_rgba(139,92,246,0.15)] sm:px-10">
           <p className="font-bold uppercase tracking-widest text-[#B46B00]">
             Partner With Us
           </p>

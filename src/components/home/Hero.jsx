@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import show01 from "../../assets/hero/show-01.webp";
 import show02 from "../../assets/hero/show-02.webp";
@@ -75,21 +74,6 @@ function Hero() {
     preloadImage(currentImage + 2);
   }, [currentImage]);
 
-  const previousSlide = () => {
-    const previous =
-      (currentImage - 1 + heroImages.length) % heroImages.length;
-
-    preloadImage(previous);
-    setCurrentImage(previous);
-  };
-
-  const nextSlide = () => {
-    const next = (currentImage + 1) % heroImages.length;
-
-    preloadImage(next);
-    setCurrentImage(next);
-  };
-
   const goToSlide = (index) => {
     preloadImage(index);
     setCurrentImage(index);
@@ -131,82 +115,6 @@ function Hero() {
       {/* BLUE GLOW */}
       <div className="pointer-events-none absolute left-1/2 top-0 z-[3] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#4FCBFF]/20 blur-[120px]" />
 
-      {/* LEFT ARROW */}
-      <button
-        type="button"
-        onClick={previousSlide}
-        aria-label="Previous show photo"
-        className="
-          absolute
-          left-3
-          top-1/2
-          z-30
-          flex
-          h-10
-          w-10
-          -translate-y-1/2
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-white/30
-          bg-[#0B1D5A]/60
-          text-white
-          shadow-lg
-          backdrop-blur-md
-          transition-all
-          duration-300
-          hover:scale-110
-          hover:bg-[#2A1E68]/90
-          sm:left-5
-          sm:h-12
-          sm:w-12
-          lg:left-8
-          lg:h-14
-          lg:w-14
-        "
-      >
-        <ChevronLeft size={24} strokeWidth={2.5} />
-      </button>
-
-      {/* RIGHT ARROW */}
-      <button
-        type="button"
-        onClick={nextSlide}
-        aria-label="Next show photo"
-        className="
-          absolute
-          right-3
-          top-1/2
-          z-30
-          flex
-          h-10
-          w-10
-          -translate-y-1/2
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-white/30
-          bg-[#0B1D5A]/60
-          text-white
-          shadow-lg
-          backdrop-blur-md
-          transition-all
-          duration-300
-          hover:scale-110
-          hover:bg-[#2A1E68]/90
-          sm:right-5
-          sm:h-12
-          sm:w-12
-          lg:right-8
-          lg:h-14
-          lg:w-14
-        "
-      >
-        <ChevronRight size={24} strokeWidth={2.5} />
-      </button>
-
       {/* HERO CONTENT */}
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center">
 
@@ -214,7 +122,7 @@ function Hero() {
         <img
           src="/bktcg-logo.webp"
           alt="BKTCG Show"
-          className="mx-auto mb-8 w-56 drop-shadow-2xl sm:w-72 md:w-96"
+          className="home-logo-stamp mx-auto mb-8 w-56 drop-shadow-2xl sm:w-72 md:w-96"
         />
 
         {/* HEADING */}

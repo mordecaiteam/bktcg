@@ -27,6 +27,20 @@
     <title>
       BKTCG Show | Brooklyn Trading Card Show
     </title>
+
+    <!-- Inline so the loading screen appears before the app styles download. -->
+    <style>
+      html, body { margin: 0; background: #2A1E68; }
+      .site-loader { position: fixed; inset: 0; z-index: 100; display: flex;
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 28px; background: #2A1E68; color: white; font-family: system-ui, sans-serif; }
+      .site-loader-logo { width: 176px; height: 176px; object-fit: contain;
+        animation: site-loader-spin 2.4s linear infinite; }
+      .site-loader-text { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: .12em; }
+      @keyframes site-loader-spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { .site-loader-logo { animation: none; } }
+    </style>
+    <link rel="preload" as="image" href="/bktcg-logo.webp" />
   </head>
 
   <body>
@@ -134,7 +148,13 @@
     </form>
 
     <!-- React Application -->
-    <div id="root"></div>
+    <div id="root">
+      <div class="site-loader" role="status" aria-live="polite" aria-label="Loading site">
+        <img class="site-loader-logo" src="/bktcg-logo.webp" alt="" width="176" height="176" fetchpriority="high" />
+        <p class="site-loader-text">Loading...</p>
+      </div>
+    </div>
+    <noscript><style>.site-loader { display: none; }</style><p style="color:white;text-align:center">Please enable JavaScript to view BKTCG Show.</p></noscript>
 
     <script
       type="module"

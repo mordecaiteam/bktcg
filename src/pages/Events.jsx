@@ -17,7 +17,7 @@ export default function Events() {
         <div className="mx-auto max-w-6xl">
 
           {/* PAGE HEADER */}
-          <div className="mb-10 text-center">
+          <div data-page-motion="header" className="mb-10 text-center">
             <p className="font-black uppercase tracking-[0.2em] text-[#B46B00]">
               Brooklyn's TCG Community
             </p>
@@ -32,7 +32,7 @@ export default function Events() {
           </div>
 
           {/* EVENT TABS */}
-          <div className="mb-9 flex justify-center">
+          <div data-page-motion="reveal" className="mb-9 flex justify-center">
             <div className="inline-flex rounded-2xl border border-[#2A1E68]/10 bg-white/95 p-1.5 shadow-lg">
 
               {["upcoming", "past"].map((tab) => (
@@ -86,7 +86,7 @@ export default function Events() {
             ) : (
 
               /* NO UPCOMING EVENTS */
-              <div className="mx-auto max-w-3xl rounded-3xl border border-[#2A1E68]/10 bg-white/95 p-10 text-center shadow-xl">
+              <div data-page-motion="reveal" className="mx-auto max-w-3xl rounded-3xl border border-[#2A1E68]/10 bg-white/95 p-10 text-center shadow-xl">
 
                 <h2 className="text-3xl font-black">
                   More Shows Coming Soon

@@ -1,7 +1,7 @@
 function ThankYou() {
   return (
     <main className="flex min-h-[70vh] items-center justify-center bg-gradient-to-br from-[#0B1D5A] via-[#2A1E68] to-[#5B2DB8] px-6 text-white">
-      <div className="max-w-xl text-center">
+      <div data-page-motion="header" className="max-w-xl text-center">
         <p className="font-bold uppercase tracking-widest text-[#FFA500]">
           Message Sent
         </p>

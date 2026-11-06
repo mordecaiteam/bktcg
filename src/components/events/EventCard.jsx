@@ -9,7 +9,7 @@ export default function EventCard({ event, featured = false }) {
   const hasMap = Boolean(event.treasureMapUrl || event.floorplan || event.treasureMap);
 
   return (
-    <article className="overflow-hidden rounded-3xl border border-[#2A1E68]/10 bg-[#F8F7FF] shadow-[0_15px_40px_rgba(0,0,0,.12)]">
+    <article data-page-motion="reveal" className="overflow-hidden rounded-3xl border border-[#2A1E68]/10 bg-[#F8F7FF] shadow-[0_15px_40px_rgba(0,0,0,.12)]">
       <div className={`grid ${featured ? "lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]" : "md:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)]"}`}>
         {event.image && (
           <div className="flex items-center justify-center bg-gradient-to-br from-[#0B1D5A] to-[#5B2DB8] p-5">

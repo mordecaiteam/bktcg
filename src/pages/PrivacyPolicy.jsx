@@ -64,25 +64,25 @@ export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-4 py-16 text-[#2A1E68] sm:px-6 md:py-24">
       <div className="mx-auto max-w-4xl">
-        <header className="mb-10 text-center">
+        <header data-page-motion="header" className="mb-10 text-center">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#6B52D9]">BKTCG Show</p>
           <h1 className="mt-3 text-4xl font-black md:text-5xl">Privacy Policy</h1>
           <p className="mt-4 text-sm text-[#2A1E68]/60">Effective date: October 30, 2026</p>
         </header>
         <article className="rounded-3xl border border-[#A78BFA]/40 bg-white/95 p-6 shadow-[0_0_28px_rgba(139,92,246,0.13)] sm:p-10">
-          <p className="leading-7 text-[#2A1E68]/80">
+          <p data-page-motion="reveal" className="leading-7 text-[#2A1E68]/80">
             This Privacy Policy explains how BKTCG Show ("BKTCG," "we," "us") handles information associated with our website and online inquiries. It does not replace the privacy policies of ticketing, social media, or other third-party services.
           </p>
           <div className="mt-9 space-y-9">
             {sections.map(({ title, paragraphs }) => (
-              <section key={title}>
+              <section data-page-motion="reveal" key={title}>
                 <h2 className="text-xl font-black sm:text-2xl">{title}</h2>
                 {paragraphs.map((paragraph) => (
                   <p key={paragraph} className="mt-3 leading-7 text-[#2A1E68]/75">{paragraph}</p>
                 ))}
               </section>
             ))}
-            <section>
+            <section data-page-motion="reveal">
               <h2 className="text-xl font-black sm:text-2xl">10. Contact Us</h2>
               <p className="mt-3 leading-7 text-[#2A1E68]/75">
                 Questions about this policy or information submitted through our website? Email{" "}
@@ -91,7 +91,7 @@ export default function PrivacyPolicy() {
             </section>
           </div>
         </article>
-        <div className="mt-8 text-center text-sm font-semibold">
+        <div data-page-motion="reveal" className="mt-8 text-center text-sm font-semibold">
           <Link to="/terms" className="text-[#5B2DB8] underline underline-offset-4 hover:text-[#2A1E68]">Read our Terms of Service</Link>
         </div>
       </div>

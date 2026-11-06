@@ -47,16 +47,16 @@ function ContactUs() {
       <section className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-2">
         {/* Left: Contact Form */}
         <div>
-          <p className="font-bold uppercase tracking-[0.35em] text-[#FFA500]">
+          <p data-page-motion="header" className="font-bold uppercase tracking-[0.35em] text-[#FFA500]">
             Get In Touch
           </p>
 
-          <h1 className="mt-6 text-4xl font-black md:text-5xl">
+          <h1 data-page-motion="header" className="mt-6 text-4xl font-black md:text-5xl">
             Contact Us & Meet Our Team
             <span className="text-[#4FCBFF]">!</span>
           </h1>
 
-          <form
+          <form data-page-motion="reveal"
             name="contact"
             method="POST"
             data-netlify="true"
@@ -118,18 +118,18 @@ function ContactUs() {
 
         {/* Right: Contact Information */}
         <div>
-          <p className="font-bold uppercase tracking-[0.35em] text-[#FFA500]">
+          <p data-page-motion="header" className="font-bold uppercase tracking-[0.35em] text-[#FFA500]">
             Information
           </p>
 
-          <h2 className="mt-6 text-4xl font-black md:text-5xl">
+          <h2 data-page-motion="header" className="mt-6 text-4xl font-black md:text-5xl">
             Contact Information
             <span className="text-[#4FCBFF]">!</span>
           </h2>
 
           <div className="mt-14 space-y-4">
             {/* Email */}
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
+            <div data-page-motion="reveal" className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
                   <img
@@ -163,7 +163,7 @@ function ContactUs() {
             </div>
 
             {/* Instagram */}
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
+            <div data-page-motion="reveal" className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
                   <img
@@ -199,7 +199,7 @@ function ContactUs() {
             </div>
 
             {/* TikTok */}
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
+            <div data-page-motion="reveal" className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
                   <img

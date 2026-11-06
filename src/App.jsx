@@ -1,16 +1,20 @@
+import { lazy, Suspense } from "react";
+import LoadingScreen from "./components/LoadingScreen";
+import PageAnimations from "./components/PageAnimations";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import Events from "./pages/Events";
-import Sponsors from "./pages/Sponsors";
-import ContactUs from "./pages/ContactUs";
 import Footer from "./components/Footer";
-import ThankYou from "./pages/ThankYou";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import SponsorThankYou from "./pages/SponsorThankYou";
+
+const Home = lazy(() => import("./pages/Home"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Events = lazy(() => import("./pages/Events"));
+const Sponsors = lazy(() => import("./pages/Sponsors"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const SponsorThankYou = lazy(() => import("./pages/SponsorThankYou"));
 
 function App() {
   return (
@@ -18,6 +22,8 @@ function App() {
     <ScrollToTop />
       <Navbar />
 
+      <Suspense fallback={<LoadingScreen />}>
+      <PageAnimations />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
@@ -29,6 +35,7 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/sponsor-thank-you" element={<SponsorThankYou />} />
       </Routes>
+      </Suspense>
 
       <Footer />
     </BrowserRouter>

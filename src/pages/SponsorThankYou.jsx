@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function SponsorThankYou() {
   return (
     <main className="flex min-h-[75vh] items-center bg-[#2A1E68] px-6 py-20 text-white">
-      <div className="mx-auto w-full max-w-3xl text-center">
+      <div data-page-motion="header" className="mx-auto w-full max-w-3xl text-center">
         {/* Success Icon */}
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#4FCBFF]/30 bg-[#4FCBFF]/10">
           <span className="text-4xl font-black text-[#4FCBFF]">

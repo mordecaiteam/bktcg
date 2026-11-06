@@ -49,7 +49,7 @@ function AboutUs() {
         <div className="absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-[#4FCBFF]/20 blur-[120px]" />
 
         {/* HERO CONTENT */}
-        <div className="relative z-10 mx-auto max-w-4xl">
+        <div data-page-motion="header" className="relative z-10 mx-auto max-w-4xl">
           <p className="font-bold uppercase tracking-widest text-[#4FCBFF]">
             About BKTCG Show
           </p>
@@ -97,7 +97,7 @@ function AboutUs() {
 
       {/* MISSION — SOFT PURPLE BACKGROUND */}
       <section className="bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-6 py-20 text-[#2A1E68]">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+        <div data-page-motion="reveal" className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
 
           <div>
             <p className="font-bold uppercase tracking-widest text-[#B46B00]">
@@ -122,7 +122,7 @@ function AboutUs() {
 
       {/* VALUES — KEEP DARK NAVY */}
       <section className="bg-[#0B1D5A] px-6 py-20">
-        <div className="mx-auto max-w-6xl">
+        <div data-page-motion="reveal" className="mx-auto max-w-6xl">
 
           <div className="text-center">
             <p className="font-bold uppercase tracking-widest text-[#4FCBFF]">
@@ -156,7 +156,7 @@ function AboutUs() {
 
       {/* WHAT TO EXPECT — SOFT PURPLE BACKGROUND */}
       <section className="bg-gradient-to-br from-[#F5F2FF] via-[#F1F0FF] to-[#EDF5FF] px-6 py-20 text-[#2A1E68]">
-        <div className="mx-auto max-w-6xl">
+        <div data-page-motion="reveal" className="mx-auto max-w-6xl">
 
           <div className="text-center">
             <p className="font-bold uppercase tracking-widest text-[#B46B00]">
@@ -204,11 +204,11 @@ function AboutUs() {
 
       {/* CTA — KEEP ORANGE */}
       <section className="bg-gradient-to-r from-[#FFA500] via-[#FFD24A] to-[#FFA500] px-6 py-20 text-center text-[#2A1E68]">
-        <h2 className="text-3xl font-black md:text-5xl">
+        <h2 data-page-motion="reveal" className="text-3xl font-black md:text-5xl">
           Join The Brooklyn Card Community
         </h2>
 
-        <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold">
+        <p data-page-motion="reveal" className="mx-auto mt-4 max-w-2xl text-lg font-semibold">
           Buy, sell, trade, collect, and connect at BKTCG Show.
         </p>
       </section>

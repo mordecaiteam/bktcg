@@ -8,7 +8,7 @@ export default function PastEventCard({ event }) {
   const hasMap = Boolean(event.treasureMapUrl || event.floorplan || event.treasureMap);
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-[#2A1E68]/10 bg-[#F8F7FF] shadow-lg">
+    <article data-page-motion="reveal" className="overflow-hidden rounded-2xl border border-[#2A1E68]/10 bg-[#F8F7FF] shadow-lg">
       {event.image && <div className="flex h-56 items-center justify-center bg-gradient-to-br from-[#0B1D5A] to-[#5B2DB8] p-3"><img src={event.image} alt={`${event.title} poster`} loading="lazy" decoding="async" className="h-full w-full object-contain" /></div>}
       <div className="p-5">
         <p className="text-xs font-bold uppercase tracking-wider text-[#5B2DB8]">{event.displayDate}</p>
