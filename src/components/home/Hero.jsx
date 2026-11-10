@@ -80,7 +80,7 @@ function Hero() {
   };
 
   return (
-    <section className="relative isolate flex min-h-[720px] items-center justify-center overflow-hidden bg-[#0B1D5A] px-6 py-24 text-center text-white md:min-h-[780px]">
+    <section className="relative isolate flex items-center justify-center overflow-hidden bg-[#0B1D5A] px-6 py-10 text-center text-white md:py-14">
 
       {/* BACKGROUND SLIDESHOW */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -122,7 +122,7 @@ function Hero() {
         <img
           src="/bktcg-logo.webp"
           alt="BKTCG Show"
-          className="home-logo-stamp mx-auto mb-8 w-56 drop-shadow-2xl sm:w-72 md:w-96"
+          className="mx-auto mb-8 w-56 drop-shadow-2xl sm:w-72 md:w-96"
         />
 
         {/* HEADING */}
